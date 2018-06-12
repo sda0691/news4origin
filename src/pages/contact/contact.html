@@ -1,0 +1,34 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content >
+    <img width="100%" height="160px" src="assets/imgs/nature.jpg">
+  <ion-list>
+    <ion-list-header>
+      <a href=# style="margin:10px;text-decoration: none">by member</a><a href=# style="margin:10px;text-decoration: none">by group</a>
+    </ion-list-header>
+    <ion-list-header *ngFor="let member of members" (click)="callOption(member)">
+      <div style="float:left">
+          <ion-avatar item-start>
+              <img src="assets/imgs/a.jpg" class="avatar">
+          </ion-avatar>
+      </div>
+      <div style="float:left">
+          <div style="text-transform: uppercase;font-weight: 300;text-align: left;font-size: 14px;padding:5px">{{member.GroupType}}</div>
+          <div style="text-transform: uppercase;font-weight: 600;text-align: left;font-size: 18px;padding:5px">{{member.Name}} </div>
+          <!-- <div class="box large bold">{{member.Title}}</div>
+          <div class="box light small">{{member.SubTitle}}</div> -->
+      </div>
+      <div style="float:right;">
+        <h1><ion-icon  name="ios-call-outline" document  style="margin: 20px"></ion-icon></h1>
+      </div>
+    </ion-list-header>
+ 
+ 
+  </ion-list>
+</ion-content>

@@ -1,0 +1,156 @@
+<!--
+  Generated template for the NewsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>News</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+
+<ion-content class="body">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <img width="100%" height="160px" src="assets/imgs/nature.jpg">
+    <ion-list>
+        <!-- <ion-list-header style="height:2em">
+
+        </ion-list-header> -->
+        <ion-list-header style="text-align: center" (click)="AddNews()">
+          <ion-grid >
+            <ion-row>
+              <ion-col col-6 style="text-align: left;padding-left:10px">
+                  <div style="text-transform: uppercase;font-weight: 600;text-align: left;font-size: 16px;">Add News</div>
+              </ion-col>   
+              <ion-col col-6 style="text-align: right;padding-right:10px">
+                  <h2><ion-icon name="add-circle" large></ion-icon></h2>
+              </ion-col>                         
+            </ion-row>
+          </ion-grid>
+            <!-- <div style="float:left"><h1><ion-icon name="add-circle" large></ion-icon></h1></div>
+            <div class="box mid bold" style="float:right">Add News</div> -->
+
+        </ion-list-header>
+
+      <ion-item  *ngFor="let news of newsapi" style="margin: 5px" (click)="NewsDetail(news)" >
+          <div class="box " style="text-transform: uppercase;font-weight: 400;text-align: right;font-size: 14px"> {{news.Member.Name}}</div>
+          <div class="box " style="text-transform: uppercase;font-weight: 300;text-align: right;font-size: 12px"> {{news.WhenCreated|date:'yyyy-MM-dd'}}</div>
+          <div class="box " style="text-transform: uppercase;font-weight: 600;text-align: left;font-size: 16px"> {{news.Title}}</div>
+          <!-- <div class="box" style="font-weight: 400;text-align: left;font-size: 16px;margin-top: 15px;word-wrap: break-word;white-space:normal;"> {{new.Note.substr(0,80)}}</div> -->
+          <div class="box" style="font-weight: 400;text-align: left;font-size: 16px;margin-top: 15px;word-wrap: break-word;white-space:normal;"> {{news.Note }}</div>
+          <div class="box" style="font-weight: 300;font-size: 14px;color:purple;" >read more...</div>
+
+          <div style="margin-top: 5px;margin-bottom: 5px;">
+              <img class="ythumb" src="http://img.youtube.com/vi/{{news.VideoPath}}/0.jpg" *ngIf="(news.VideoPath.length>0)"/>
+          </div>
+          <div>
+              <!-- <iframe width="100%" height="315" [src]=new.VideoPath frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+              <!-- <iframe width="100%" height="315" src=test frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          </div>
+      
+          <div class="scrolling-wrapper">
+              <div class="card" *ngFor="let img of news.NewsImage" style="width:120px;padding: 2px">
+                  <img src="{{img.ImagePath}}" height="120" width="100%" >
+              </div>
+          </div>
+      </ion-item>
+    </ion-list>
+  <!-- <ion-card style="margin-top: 2px;text-align: center">
+    <ion-card-content (click)="addNews(new)">
+      <h2 style="font-weight: bold;"><ion-icon name="ios-document-outline" document ></ion-icon><label style="margin-right: 10px;"></label> Add News</h2>
+    </ion-card-content>
+  </ion-card> -->
+
+  <!-- <div class="card-title">
+      <p style="font-weight: bold; font-size: 50px; color: white;" absolute-drag>example123</p>
+      </div> -->
+
+  <!-- <ion-card *ngFor="let new of newsapi">
+
+    <ion-card-content (click)="newsDetail(new)" >
+      <div class="box mid" style="text-transform: uppercase;font-weight: 500"> {{new.Member.Name}}</div>
+      
+      <div class="box light xsmall">{{new.WhenCreated|date:'yyyy-MM-dd'}}</div>
+      <br />
+      <div class="box mid bold" style="font-weight: 500;font-size: 18px">{{new.Title}}</div>    
+      <br />
+      <div class="box" style="font-weight: 400;font-size: 16px">{{new.Note}}</div>
+      <br />
+      
+    </ion-card-content>
+    <div style="margin-top: 5px;margin-bottom: 5px;">
+        <img class="ythumb" src="http://img.youtube.com/vi/{{new.VideoPath}}/0.jpg" *ngIf="(new.VideoPath!=null)"/>
+    </div>
+
+    <div class="scrolling-wrapper">
+        <div class="card" *ngFor="let img of new.NewsImage" style="width:120px;padding: 1px">
+            <img src="{{img.ImagePath}}" height="120" width="100%" >
+        </div>
+    </div>
+  </ion-card> -->
+  
+  
+
+
+  
+
+  <!-- /////// -->
+    <!-- <div>
+      <button ion-button (click)="addNews()"><span>Add News</span></button>
+    </div> -->
+    <!-- <ion-card *ngFor="let new of news"  >
+        <ion-item>
+            <ion-avatar item-start>
+              <img src="../../assets/imgs/a.jpg">
+            </ion-avatar>
+            <h2>{{new.Title}}</h2>
+        </ion-item>
+        <ion-card-content (click)="newsDetail(new,getImages(new.Id))">
+            <p>{{new.Body}}</p>
+        </ion-card-content>
+        <div class="scrolling-wrapper">
+            <div class="card" *ngFor="let img of getImages(new.Id)" style="width:120px;padding: 1px">
+                <img src="{{img.Name}}" height="120" width="100%" *ngIf="(img.NewsId==new.Id)">
+            </div>
+        </div>
+        <ion-row>
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>12 Likes</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>4 Comments</div>
+              </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button icon-left clear small (click)="removeNews(new)">
+                  <ion-icon name="trash"></ion-icon>
+                  <div></div>
+                </button>
+             </ion-col>
+            <ion-col>
+                  <button ion-button icon-left clear small (click)="addNews(new)">
+                    <ion-icon name="brush"></ion-icon>
+                    <div></div>
+                  </button>
+              </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+                11h ago
+              </ion-note>
+            </ion-col>
+        </ion-row>
+    
+    </ion-card> -->
+</ion-content>

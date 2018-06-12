@@ -1,0 +1,51 @@
+<!--
+  Generated template for the NewsDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>소식</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div>
+  <!-- <button type="button" (click)="DeleteNews(news.Id)">Delete</button> -->
+  <button ion-button (click)="EditNews(news.Id)"> Edit</button>
+  <button ion-button (click)="DeleteConfirm(news.Id)"> Delete</button>
+</div>
+<div class="box " style="text-transform: uppercase;font-weight: 400;text-align: right;font-size: 14px"> {{news.Member.Name}}</div>
+<div class="box " style="text-transform: uppercase;font-weight: 300;text-align: right;font-size: 12px"> {{news.WhenCreated|date:'yyyy-MM-dd'}}</div>
+<div class="box " style="text-transform: uppercase;font-weight: 600;text-align: left;font-size: 16px"> {{news.Title}}</div>
+<!-- <div class="box" style="font-weight: 400;text-align: left;font-size: 16px;margin-top: 15px;word-wrap: break-word;white-space:normal;"> {{new.Note.substr(0,80)}}</div> -->
+<div class="box" style="font-weight: 400;text-align: left;font-size: 16px;margin-top: 15px;word-wrap: break-word;white-space:normal;"> {{news.Note }}</div>
+
+<!-- <div>
+  {{news.WhoCreated}}
+</div>
+<div style="padding-top:10px">
+  {{news.Note}}
+</div> -->
+<div *ngIf="news.VideoPath">
+    <!-- <iframe width="100%" height="315" src="https://www.youtube.com/embed/IXI2eRqSUqQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+    <iframe width="100%" height="315" [src]=trustedVideoUrl frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+<div style="padding-top:10px">
+    <div  *ngFor="let img of news.NewsImage" >
+        <img src="{{img.ImagePath}}"  >
+    </div>
+</div>
+
+<div style="padding-top:10px">
+    <div  *ngFor="let comment of news.NewsComment" >
+        <div>{{comment.WhoCreated}}</div>
+        <div>{{comment.WhenCreated}}</div>
+        <div>{{comment.Note}}</div>
+    </div>
+</div>
+</ion-content>

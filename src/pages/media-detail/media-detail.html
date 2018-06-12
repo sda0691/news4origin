@@ -1,0 +1,82 @@
+<!--
+  Generated template for the MediaDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title>
+      <div class="box large bold">{{media.Title}}</div>
+      <div class="box light small ">{{media.SubTitle}}</div>
+    </ion-title> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            <ion-grid>
+                <ion-row>
+                  <ion-col col-4 style="text-align: center">
+                    <div style="text-transform: uppercase;font-weight: 400;text-align: center;font-size: 14px;padding:5px">
+                      Date
+                    </div>
+                    <div style="text-transform: uppercase;font-weight: 400;text-align: center;font-size: 14px;padding:5px">
+                        {{media.WhenCreated|date:'yyyy-MM-dd'}} 
+                    </div>
+                  </ion-col>
+                  <ion-col col-4 style="text-align: center">
+                    <div style="text-transform: uppercase;font-weight: 400;text-align: center;font-size: 14px;padding:5px">
+                        Author
+                    </div>
+                    <div style="text-transform: uppercase;font-weight: 400;text-align: center;font-size: 14px;padding:5px">
+                      {{media.Author}}
+                    </div>
+                  </ion-col>
+                  <ion-col col-4 style="text-align: center">
+                    <div style="text-transform: uppercase;font-weight: 400;text-align: center;font-size: 14px;padding:5px">
+                      Type
+                    </div>
+                    <div style="text-transform: uppercase;font-weight: 400;text-align: center;font-size: 14px;padding:5px">
+                      {{media.MediaType.Name}}
+                    </div>                    
+                  </ion-col>
+                </ion-row>
+
+              </ion-grid>
+        </ion-list-header>      
+ 
+        <ion-list-header>
+          <div class="center">
+              <div style="text-transform: uppercase;font-weight: 600;text-align: center;font-size: 18px;padding:5px" >{{media.Title}}</div>
+              <div style="text-transform: uppercase;font-weight: 500;text-align: center;font-size: 16px;padding:5px">{{media.SubTitle}}</div>
+          </div>
+        </ion-list-header>   
+
+        <ion-list-header>
+            <div style="width: 100%">
+                <audio controls controlsList="nodownload" oncontextmenu="return false;" style="width:100%" >
+                  <source src="{{'http://cmistest.indas.on.ca/IMG/AUDIO/'+'bbb.mp3'}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div> 
+        </ion-list-header>                     
+    </ion-list>
+<!-- 
+    <div>
+        <audio controls controlsList="nodownload" oncontextmenu="return false;" >
+          <source src="{{'http://cmistest.indas.on.ca/Group/Group/Media/'+'bbb.mp3'}}" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+    </div> 
+    <div>
+        <audio controls controlsList="nodownload" oncontextmenu="return false;" >
+          <source src="{{'http://cmistest.indas.on.ca/IMG/AUDIO/'+'bbb.mp3'}}" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+    </div>      -->
+</ion-content>
